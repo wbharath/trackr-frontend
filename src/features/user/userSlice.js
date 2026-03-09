@@ -21,7 +21,7 @@ const initialState = {
 export const registerUser = createAsyncThunk(
   'user/registerUser',
   async (user, thunkAPI) => {
-    return registerUserThunk('/auth/registerUser', user, thunkAPI)
+    return registerUserThunk('/auth/register', user, thunkAPI)
   }
 )
 
@@ -63,10 +63,11 @@ const userSlice = createSlice({
         state.isLoading = true
       })
       .addCase(registerUser.fulfilled, (state, { payload }) => {
-        const { user } = payload
+        const { user, token } = payload
+        const userWithToken = {...user, token}
         state.isLoading = false
-        state.user = user
-        addUserToLocalStorage(user)
+        state.user = userWithToken
+        addUserToLocalStorage(userWithToken)
         toast.success(`Hello There ${user.name}`)
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
@@ -77,10 +78,11 @@ const userSlice = createSlice({
         state.isLoading = true
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
-        const { user } = payload
+        const { user , token} = payload
+        const userWithToken = {...user, token}
         state.isLoading = false
-        state.user = user
-        addUserToLocalStorage(user)
+        state.user = userWithToken
+        addUserToLocalStorage(userWithToken)
         toast.success(`Welcome back ${user.name}`)
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
@@ -91,10 +93,11 @@ const userSlice = createSlice({
         state.isLoading = true
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
-        const { user } = payload
+        const { user, token } = payload
+        const userWithToken = {...user, token}
         state.isLoading = false
-        state.user = user
-        addUserToLocalStorage(user)
+        state.user = userWithToken
+        addUserToLocalStorage(userWithToken)
         toast.success(`User Updated`)
       })
       .addCase(updateUser.rejected, (state, { payload }) => {

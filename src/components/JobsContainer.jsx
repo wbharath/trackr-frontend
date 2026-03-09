@@ -43,7 +43,7 @@ const JobsContainer = () => {
       <div className="jobs">
         {jobs.map((job) => {
           //   console.log(job)
-          return <Job key={job._id} {...job} />
+          return <Job key={job.id} {...job} />
         })}
       </div>
       {numOfPages > 1 && <PageBtnContainer />}

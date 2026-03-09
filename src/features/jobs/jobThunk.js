@@ -5,12 +5,16 @@ import { logoutUser } from '../user/userSlice'
 import { clearValues } from './jobslice'
 
 export const createJobThunk = async (job, thunkAPI) => {
+  console.log('AUTH HEADER:', authHeader(thunkAPI))
+  console.log('JOB PAYLOAD:', job)
   try {
     const resp = await customFetch.post('/jobs', job, authHeader(thunkAPI))
     //   console.log(resp.data)
     thunkAPI.dispatch(clearValues())
     return resp.data
   } catch (error) {
+    console.log('ERROR RESPONSE:', error.response?.data) // 👈 add this
+    console.log('ERROR STATUS:', error.response?.status)
     return checkForUnauthorizedResponse(error, thunkAPI)
   }
 }

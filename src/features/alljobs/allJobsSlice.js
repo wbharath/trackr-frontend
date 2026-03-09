@@ -54,9 +54,10 @@ const allJobsSlice = createSlice({
       })
       .addCase(getAllJobs.fulfilled, (state, { payload }) => {
         state.isLoading = false
-        state.jobs = payload.jobs
-        state.numOfPages = payload.numOfPages
+        state.isLoading = false
+        state.jobs = payload.jobs 
         state.totalJobs = payload.totalJobs
+        state.numOfPages = payload.numOfPages
       })
       .addCase(getAllJobs.rejected, (state, { payload }) => {
         state.isLoading = false
