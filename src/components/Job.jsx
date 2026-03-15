@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router'
 import JobInfo from './JobInfo'
 import moment from 'moment'
-import { deleteJob, setEditJob } from '../features/jobs/jobslice'
+import { deleteJob, setEditJob } from '../features/jobs/jobSlice'
 const Job = ({
   id,
   position,

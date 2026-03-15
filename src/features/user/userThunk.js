@@ -1,7 +1,7 @@
 import { authHeader } from '../../../utils/authHeader'
 import customFetch from '../../../utils/axios'
 import { clearAllJobsState, clearFilters } from '../alljobs/allJobsSlice'
-import { clearValues } from '../jobs/jobslice'
+import { clearValues } from '../jobs/jobSlice'
 import { logoutUser } from './userSlice'
 
 export const registerUserThunk = async (url, user, thunkAPI) => {

@@ -8,7 +8,7 @@ import {
   createJob,
   editJob,
   handleChange
-} from '../../features/jobs/jobslice'
+} from '../../features/jobs/jobSlice'
 import { toast } from 'react-toastify'
 
 const AddJob = () => {
