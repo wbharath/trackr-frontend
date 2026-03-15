@@ -79,12 +79,6 @@ const Wrapper = styled.main`
     border-color: var(--slate-500);
     color: var(--slate-800);
   }
-  .main-img {
-    display: none;
-    border-radius: var(--borderRadiusLg);
-    border: 1px solid var(--borderColor);
-    box-shadow: var(--shadow-4);
-  }
   .trust-bar {
     display: flex;
     align-items: center;
